@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertService } from 'src/app/core/services/alert.service';
+import { ToastService } from './../../core/services/toast.service';
 
 @Component({
   selector: 'app-cardapio-list',
@@ -7,9 +9,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardapioListPage implements OnInit {
 
-  constructor() { }
+  products: any[] = [];
+
+  constructor(
+    private alert: AlertService,
+    private toast: ToastService
+  ) { }
 
   ngOnInit() {
+
+    for(let i=0;i<20; i++){
+      const product = {
+        category: 'Hamburguers',
+        name: `Hamburguer ${i+1}`,
+        price: (10.5 * (i+1)),
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...',
+        photoUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80'
+      };
+
+      this.products.push(product);
+    }
   }
 
+  remove(produto: any) {
+    this.alert.showConfirmDelete(produto.name, () => this.executeRemove(produto) );
+  }
+
+  private executeRemove(produto: any) {
+    try {
+      // chamar a API para remover
+
+      // remove da lista
+      const index = this.products.indexOf(produto);
+      this.products.splice(index, 1);
+
+      this.toast.showSuccess('Produto excluído com sucesso');
+    } catch (error) {
+      this.toast.showError('Erro ao excluir o produto');
+    }
+  }
 }
