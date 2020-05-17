@@ -28,7 +28,23 @@ const routes: Routes = [
       },
     ]
   },
-  
+  {
+    path: 'categories',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./categories/category-list/category-list.module').then( m => m.CategoryListPageModule)
+      },
+      {
+        path: 'new',
+        loadChildren: () => import('./categories/category-edit/category-edit.module').then( m => m.CategoryEditPageModule)
+      },
+      {
+        path: 'edit/:id',
+        loadChildren: () => import('./categories/category-edit/category-edit.module').then( m => m.CategoryEditPageModule)
+      },
+    ]
+  }
 ];
 
 @NgModule({
