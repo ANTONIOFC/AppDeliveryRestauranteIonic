@@ -20,13 +20,13 @@ export class CardapioListPage implements OnInit {
 
     for(let i=0;i<20; i++){
       const product = {
+        id: i+1,
         category: 'Hamburguers',
         name: `Hamburguer ${i+1}`,
         price: (10.5 * (i+1)),
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...',
-        photoUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80'
-      };
-
+        photoUrl: 'assets/icon/air-conditioner.svg'
+      }
       this.products.push(product);
     }
   }

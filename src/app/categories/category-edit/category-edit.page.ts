@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastService } from './../../core/services/toast.service';
 
 @Component({
   selector: 'app-category-edit',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryEditPage implements OnInit {
 
-  constructor() { }
+  title = 'Nova Categoria';
+
+  constructor(
+    private toast: ToastService
+  ) { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    try {
+      // chamar a API
+      this.toast.showSuccess('Categoria cadastrada com sucesso')
+    } catch (error) {
+      this.toast.showError('Erro ao cadastrar a categoria');
+    }
   }
 
 }

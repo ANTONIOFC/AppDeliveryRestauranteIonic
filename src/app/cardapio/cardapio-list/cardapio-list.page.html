@@ -9,6 +9,8 @@
     <ion-item *ngFor="let product of products">
       <ion-thumbnail slot="start">
         <ion-img [src]="product.photoUrl"></ion-img>
+        
+        <!-- <i class="fas fa-file-alt"></i> -->
       </ion-thumbnail>
       <ion-label>
         <h1>{{product.name}}</h1>
@@ -29,6 +31,8 @@
             <ion-col>
               <ion-button expand="block" color="secondary">
                 <ion-icon slot="start" name="pencil"></ion-icon>
+                <!-- <fa-icon icon="home"></fa-icon> -->
+                
                 Editar
               </ion-button>
             </ion-col>

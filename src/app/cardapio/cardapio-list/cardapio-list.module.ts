@@ -8,11 +8,14 @@ import { CardapioListPageRoutingModule } from './cardapio-list-routing.module';
 
 import { CardapioListPage } from './cardapio-list.page';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     FormsModule,
     IonicModule,
+    FontAwesomeModule,
     CardapioListPageRoutingModule
   ],
   declarations: [CardapioListPage]
