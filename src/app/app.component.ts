@@ -28,13 +28,13 @@ export class AppComponent implements OnInit {
       icon: 'basket'
     },
     {
-      title: 'Restaurante',
-      url: '/folder/Favorites',
-      icon: 'restaurant'
+      title: 'Hórario de funcionamento',
+      url: '/business-hours',
+      icon: 'information-circle'
     },
     {
       title: 'Entrega',
-      url: '/folder/Archived',
+      url: '/delivery',
       icon: 'bicycle'
     },
   ];
